@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Palanquin:wght@100;200;300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+textarea {
+  @apply outline-none border  focus:bg-transparent rounded-md py-3 md:py-4 px-3 w-full;
+}
+
+.input_div {
+  @apply relative;
+}
+.inputLabel {
+  @apply absolute  -top-2.5 left-5  text-orange bg-white z-10 transition-all duration-1000;
+}
+
+.input_div:focus-within .input_lable {
+  @apply -top-3 flex;
+}
+.btn {
+  @apply sm:w-full bg-orange text-white  rounded-md shadow-md py-2 px-12 text-lg  flex justify-center items-center;
+}
+
+.mainInput:focus-within input[type="text"],
+.mainInput:focus-within input[type="email"],
+.mainInput:focus-within input[type="password"],
+.mainInput:focus-within textarea {
+  @apply border-orange; /* Change border color when .mainInput is focused */
+}
+
+@layer components {
+  .max-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+@layer utilities {
+  .padding {
+    @apply sm:px-36 px-8 sm:py-24 py-12;
+  }
+  .padding-x {
+    @apply sm:px-36 px-8;
+  }
+  .padding-y {
+    @apply sm:py-24 py-12;
+  }
+  .padding-l {
+    @apply sm:pl-36 pl-8;
+  }
+  .padding-r {
+    @apply sm:pr-36 pr-8;
+  }
+  .padding-t {
+    @apply sm:pt-24 pt-12;
+  }
+
+  .padding-b {
+    @apply sm:pb-24 pb-12;
+  }
+  .info-text {
+    @apply font-montserrat text-slate-gray text-lg leading-7;
+  }
+  .section-title {
+    @apply text-2xl  flex gap-x-3  justify-between items-center font-bold  w-max relative;
+  }
+}
+.section-title::before {
+  content: "";
+  background-image: url("/assets/dots-light.svg");
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* Other styles for the pseudo-element */
+}
+
+.animate_image {
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: inset 0 0 0 9px rgb(255 255 255 / 10%);
+  background-size: cover;
+
+  animation: profile_animate 8s ease-in-out infinite 1s;
+}
+.custom-swiper .swiper-pagination {
+  margin-top: 20px; /* Adjust margin-top as needed */
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ff715f !important;
+}
+.swiper-pagination-bullet {
+  margin-top: 100px !important;
+}
+
+.animate_imagee {
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: inset 0 0 0 9px rgb(255 255 255 / 10%);
+  background-size: cover;
+
+  animation: profile_animate 8s ease-in-out infinite 1s;
+}
+
+@keyframes profile_animate {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+}
