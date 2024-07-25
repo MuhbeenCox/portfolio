@@ -9,6 +9,7 @@ export async function addData(currentTab, formData) {
       {
         headers: {
           "Content-Type": "application/json",
+          "Cache-Control": "no-cache, no-store, must-revalidate",
         },
       }
     );
@@ -27,7 +28,11 @@ export async function addData(currentTab, formData) {
 
 export async function getData(currentTab) {
   try {
-    const { data } = await axios.get(`${apiUrl}/api/${currentTab}/get`);
+    const { data } = await axios.get(`${apiUrl}/api/${currentTab}/get`,{
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
+    });
     console.log(data.data, "check get request");
     return data.data;
   } catch (error) {
@@ -43,6 +48,7 @@ export async function updateData(currentTab, formData) {
       {
         headers: {
           "Content-Type": "application/json",
+          "Cache-Control": "no-cache, no-store, must-revalidate",
         },
       }
     );
@@ -61,7 +67,12 @@ export async function updateData(currentTab, formData) {
 export async function deleteData(currentTab, id) {
   try {
     const { data } = await axios.delete(
-      `${apiUrl}/api/${currentTab}/delete/${id}`
+      `${apiUrl}/api/${currentTab}/delete/${id}`,
+      {
+        headers: {
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+        },
+      }
     );
     console.log(data, "services file delete method");
     if (data.success) {
@@ -77,7 +88,11 @@ export async function deleteData(currentTab, id) {
 
 export const getSingleData = async (currentTab, id) => {
   try {
-    const { data } = await axios.get(`${apiUrl}/api/${currentTab}/${id}`);
+    const { data } = await axios.get(`${apiUrl}/api/${currentTab}/${id}`,{
+      headers: {
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+      },
+    });
     if (data.success) {
       return data;
     }
