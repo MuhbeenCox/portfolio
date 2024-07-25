@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(req, res) {
   try {
     await ConnectDB();
-    const projects = await Project.find({});
+    const projects = await Project.find();
     if (projects) {
       return NextResponse.json({
         success: true,

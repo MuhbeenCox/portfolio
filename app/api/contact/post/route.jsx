@@ -8,7 +8,7 @@ export async function POST(req, res) {
     await ConnectDB();
     const body = await req.json();
 
-    const { name, email, address, dob, phone, twitter } = body.formData;
+    const { name, email, address, dob, phone, twitter } = body;
 
     if (!name || !email || !address || !dob || !phone) {
       return NextResponse.json({

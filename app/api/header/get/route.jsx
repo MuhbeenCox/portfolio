@@ -6,7 +6,7 @@ export const GET = async (req, res) => {
   try {
     await ConnectDB();
 
-    const header = await Header.find({});
+    const header = await Header.find();
     if (header) {
       return NextResponse.json({
         success: true,

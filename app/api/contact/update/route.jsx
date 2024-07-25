@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export const PUT = async (req, res) => {
   try {
     const body = await req.json();
-    const { name, email, address, dob, phone, _id, twitter } = body.formData;
+    const { name, email, address, dob, phone, _id, twitter } = body;
 
     await ConnectDB();
 

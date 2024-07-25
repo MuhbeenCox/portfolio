@@ -19,7 +19,7 @@ const Login = () => {
   console.log(session, status);
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(email);
     try {
       setLoading(true);
       const res = await signIn("credentials", {

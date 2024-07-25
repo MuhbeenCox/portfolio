@@ -6,7 +6,7 @@ export const GET = async (req, res) => {
   try {
     await ConnectDB();
 
-    const contact = await Contact.find({});
+    const contact = await Contact.find();
     if (contact) {
       return NextResponse.json({
         success: true,

@@ -18,7 +18,7 @@ export const PUT = async (req, res) => {
       image,
       cv,
       _id,
-    } = body.formData;
+    } = body;
 
     await ConnectDB();
 

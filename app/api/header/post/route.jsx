@@ -19,7 +19,7 @@ export async function POST(req, res) {
       facebook,
       image,
       cv,
-    } = body.formData;
+    } = body;
 
     if (!name || !animatedText || !description || !subHeading) {
       return NextResponse.json({
@@ -55,7 +55,7 @@ export async function POST(req, res) {
   } catch (error) {
     return NextResponse.json({
       success: false,
-      message: "Server Error check",
+      message: "Server Error",
       status: 500,
     });
   }

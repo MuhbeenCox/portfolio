@@ -6,7 +6,7 @@ export async function GET(req, res) {
   try {
     await ConnectDB();
 
-    const Services = await Service.find({});
+    const Services = await Service.find();
     if (Services) {
       return NextResponse.json({
         success: true,

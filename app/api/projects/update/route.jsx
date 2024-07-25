@@ -7,7 +7,7 @@ export async function PUT(req, { params }) {
     await ConnectDB();
     const body = await req.json();
     const { name, image, category, description, link, github, _id } =
-      body.formData;
+      body;
 
     const updateProject = await Project.findByIdAndUpdate(
       { _id: _id },

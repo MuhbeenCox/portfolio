@@ -6,7 +6,7 @@ export const POST = async (req, res) => {
   const data = await req.json();
   try {
     await ConnectDB();
-    const existingCategory = await Category.find({ category: data.formData });
+    const existingCategory = await Category.find({ category: data });
     if (existingCategory.length > 0) {
       return NextResponse.json({
         success: false,
@@ -14,7 +14,7 @@ export const POST = async (req, res) => {
         status: 500,
       });
     } else {
-      const newCategory = await Category.create({ category: data.formData });
+      const newCategory = await Category.create({ category: data });
       if (newCategory) {
         return NextResponse.json({
           success: true,

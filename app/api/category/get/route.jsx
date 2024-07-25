@@ -6,7 +6,7 @@ export const GET = async (req, res) => {
   try {
     await ConnectDB();
 
-    const categories = await Category.find({});
+    const categories = await Category.find();
     if (categories) {
       return NextResponse.json({
         success: true,

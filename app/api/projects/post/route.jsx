@@ -7,7 +7,7 @@ export async function POST(req, res) {
     await ConnectDB();
 
     const body = await req.json();
-    const { name, category, description, image, link, github } = body.formData;
+    const { name, category, description, image, link, github } = body;
 
     const newpProject = await Project.create({
       name,
